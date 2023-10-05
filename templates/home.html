@@ -1,0 +1,239 @@
+<html>
+<body>
+    <div class="container">
+        <div class="login">
+            <h1>Health Insurance Premium Prediction</h1>
+            <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <h1>
+                <legend>Predictions in Seconds...</legend>
+            </h1>
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input class="form-control" type="number" name="age"
+                    placeholder="Enter your Age" min='18' max='65' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-control" name="gender" placeholder="Enter you Gender" required>
+                    <option class="placeholder" selected disabled value="">Select your Gender</option>
+                    <option value="male">
+                        Male
+                    </option>
+                    <option value="female">
+                        Female
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">BMI</label>
+                <input class="form-control" type="float" name="bmi"
+                    placeholder="Enter your BMI" min='16.0' max='55.0' />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Children Count</label>
+                <select class="form-control" name="children" placeholder="Enter your Number of children" required>
+                    <option class="placeholder" selected disabled value="">Select Count of children</option>
+                    <option value='zero'>
+                        0
+                    </option>
+                    <option value='one'>
+                        1
+                    </option>
+                    <option value='two'>
+                        2
+                    </option>
+                    <option value='three'>
+                        3
+                    </option>
+                    <option value='four'>
+                        4
+                    </option>
+                    <option value='five'>
+                        5
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Smoker</label>
+                <select class="form-control" name="smoker" placeholder="Whether Smoker or Not" required>
+                    <option class="placeholder" selected disabled value="">Whether Smoker or Not</option>
+                    <option value="yes">
+                        yes
+                    </option>
+                    <option value="no">
+                        no
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Region</label>
+                <select class="form-control" name="region"
+                    placeholder="" required>
+                    <option class="placeholder" selected disabled value="">Region</option>
+                    <option value="northeast">
+                        northeast
+                    </option>
+                    <option value="northwest">
+                        northwest
+                    </option>
+                    <option value="southeast">
+                        southeast
+                    </option>
+                    <option value="southwest">
+                        southwest
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Own Medical History</label>
+                <select class="form-control" name="medical_history"
+                    placeholder="Select your pre existing Disease" required>
+                    <option class="placeholder" selected disabled value="">Select your pre existing Disease</option>
+                    <option value="High blood pressure">
+                        High blood pressure
+                    </option>
+                    <option value="Heart disease">
+                        Heart disease
+                    </option>
+                    <option value="Diabetes">
+                        Diabetes
+                    </option>
+                    <option value="Healthy">
+                        Healthy
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Family Medical History</label>
+                <select class="form-control" name="family_medical_history"
+                    placeholder="Family's pre existing Disease" required>
+                    <option class="placeholder" selected disabled value="">Family's pre existing Disease</option>
+                    <option value="High blood pressure">
+                        High blood pressure
+                    </option>
+                    <option value="Heart disease">
+                        Heart disease
+                    </option>
+                    <option value="Diabetes">
+                        Diabetes
+                    </option>
+                    <option value="Healthy">
+                        Healthy
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Exercise Frequency</label>
+                <select class="form-control" name="exercise_frequency"
+                    placeholder="exercise_frequency" required>
+                    <option class="placeholder" selected disabled value="">Exercise frequency</option>
+                    <option value="Frequently">
+                        Frequently
+                    </option>
+                    <option value="Rarely">
+                        Rarely
+                    </option>
+                    <option value="Occasionally">
+                        Occasionally
+                    </option>
+                    <option value="Never">
+                        Never
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Occupation</label>
+                <select class="form-control" name="occupation"
+                    placeholder="occupation" required>
+                    <option class="placeholder" selected disabled value="">Occupation</option>
+                    <option value="Blue collar">
+                        Blue collar
+                    </option>
+                    <option value="White collar">
+                        White collar
+                    </option>
+                    <option value="Student">
+                        Student
+                    </option>
+                    <option value="Unemployed">
+                        Unemployed
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Coverage Level</label>
+                <select class="form-control" name="coverage_level"
+                    placeholder="coverage_level" required>
+                    <option class="placeholder" selected disabled value="">Coverage level</option>
+                    <option value="Premium">
+                        Premium
+                    </option>
+                    <option value="Standard">
+                        Standard
+                    </option>
+                    <option value="Basic">
+                        Basic
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict your Health Premium" required />
+            </div>
+    </form>
+<h2>
+Rs.{{results}}
+</h2>
+   <body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-image: url('https://wallpaperaccess.com/full/136995.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0; /* Remove default margin for the body */
+    padding: 0; /* Remove default padding for the body */
+  }
+</style>
+</head>
+<body>
+  <p>&copy;narendra_community</p>
+  <a href="https://github.com/Narendrakmr/Health-Premium-Prediction-">Project GitHub Repo link</a>
+</body>
+</html>
+
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto; /* Center-align the container */
+    padding: 20px;
+    text-align: center; /* Center-align the content within the container */
+  }
+
+  h1 {
+    color: #FF5733; /* Set a different color for the heading */
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to My Website</h1>
+    <p>This is some introductory text.</p>
+
+    <h2>Section 1</h2>
+    <p>Content of section 1 goes here.</p>
+
+    <h2>Section 2</h2>
+    <p>Content of section 2 goes here.</p>
+  </div>
+</body>
+</html>
